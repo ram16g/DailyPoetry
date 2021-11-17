@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DailyPoetry.Views.ResultPage">
+             
+    <ContentView.Content>
+
+        <ListView ItemsSource="{Binding PoetryCollection}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}"
+                              Detail="{Binding Snippet}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.Footer>
+                <StackLayout Padding="8">
+                    <Label Text="{Binding Status}"
+                           HorizontalOptions="Center"/>
+                </StackLayout>
+            </ListView.Footer>
+        </ListView>
+    </ContentView.Content>
+</ContentView>
