@@ -9,7 +9,7 @@ namespace DailyPoetry.Models
     /// 诗词类
     /// </summary>
     [Table("works")]
-    internal class Poetry
+    public class Poetry
     {
         /// <summary>
         /// id 主键
@@ -37,5 +37,18 @@ namespace DailyPoetry.Models
 
         [Column("layout")]
         public string Layout { get; set; }
+
+        /// <summary>
+        /// 布局类型
+        /// </summary>
+        public const string CenterLayout = "center";
+        public const string IndentLayout = "indent";
+
+        private string _snippet;
+
+        [Ignore]
+        public string Snippet => _snippet ?? (_snippet = Content.Split('。')[0].Replace("\r\n",""));
+
     }
+
 }
